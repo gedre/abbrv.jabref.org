@@ -3,13 +3,14 @@ name: Checks
 on:
   - push
   - pull_request
+  - workflow_dispatch
 jobs:
   markdown-check:
     name: Check Markdown
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
       - name: Lint markdown
         uses: avto-dev/markdown-lint@v1
         with:
@@ -20,6 +21,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout source
-        uses: actions/checkout@v2
+        uses: actions/checkout@v6
       - name: Run Python Ampersands Script
         run: python3 scripts/check_ampersands.py
